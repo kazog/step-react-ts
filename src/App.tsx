@@ -4,14 +4,24 @@
  * Desc:
  */
 import React from "react";
-import logo from "./logo.svg";
+import { StateComponent, StatefulWidget, ViewData } from "reactjs-store";
+
 import "./App.css";
+import AppState from "./AppState";
+import Icons from "./assets";
+
+let _state: AppState;
 
 function App() {
+  _state = new AppState();
+  return <StateComponent children={render} state={_state} />;
+}
+
+function render() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={Icons.logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -23,9 +33,14 @@ function App() {
         >
           Learn React
         </a>
+        <StatefulWidget child={update} store={_state.time} />
       </header>
     </div>
   );
+}
+
+function update(data: ViewData<number>) {
+  return <div>{data.data}</div>;
 }
 
 export default App;
