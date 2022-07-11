@@ -6,21 +6,21 @@
 
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./main/home/Home";
+import MainPages from "./main/index";
 import AccountPages from "./account/index";
-import Notfound from "./other/notfound/Notfound";
+import OtherPages from "./other/index";
 
 const routes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<MainPages.Home />} />
       {/* <Route index element={<Home />} /> */}
       <Route path="account">
         <Route path="login" element={<AccountPages.Login />} />
         <Route path="forget" element={<AccountPages.Forget />} />
         <Route path="register" element={<AccountPages.Register />} />
       </Route>
-      <Route path="*" element={<Notfound />} />
+      <Route path="*" element={<OtherPages.Notfound />} />
     </Routes>
   );
 };
