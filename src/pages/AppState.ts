@@ -14,9 +14,14 @@ export default class AppState implements State {
 
   onShow() {
     console.log("AppState ==========> onShow");
+    this.updateTime();
+  }
+
+  private updateTime = () => {
     const timer = setTimeout(() => {
       clearTimeout(timer);
       this.time.add(Date.now());
+      this.updateTime();
     }, 3000);
   }
 }

@@ -8,11 +8,12 @@ import { StateComponent, StatefulWidget, ViewData } from "reactjs-store";
 
 import "./App.css";
 import AppState from "./AppState";
-import Icons from "./assets";
+import Icons from "../assets/index";
 
-let _state: AppState;
+let _state: AppState; // 数据
 
 function App() {
+  console.log('==============> App');
   _state = new AppState();
   return <StateComponent children={render} state={_state} />;
 }
@@ -23,16 +24,9 @@ function render() {
       <header className="App-header">
         <img src={Icons.logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          这是一套测试代码
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h3>时间更新</h3>
         <StatefulWidget child={update} store={_state.time} />
       </header>
     </div>
