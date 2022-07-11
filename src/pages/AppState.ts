@@ -1,7 +1,7 @@
 /**
  * Create By: Meng
  * Create Date: 2022-07-10
- * Desc:
+ * Desc: App页面数据
  */
 import { State, StateStore } from "reactjs-store";
 
