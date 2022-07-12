@@ -5,7 +5,7 @@
  */
 import { State, StateStore } from "reactjs-store";
 
-export default class AppState implements State {
+export default class AppState extends State {
   public time: StateStore<number> = new StateStore(0);
 
   onCreate() {
@@ -24,4 +24,5 @@ export default class AppState implements State {
       this.updateTime();
     }, 3000);
   }
+  
 }

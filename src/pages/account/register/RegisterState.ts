@@ -5,6 +5,6 @@
  */
 import {State} from 'reactjs-store';
 
-export default class RegisterState implements State {
+export default class RegisterState extends State {
   
 }

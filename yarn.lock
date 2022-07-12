@@ -7337,10 +7337,10 @@ react@^18.2.0:
   dependencies:
     loose-envify "^1.1.0"
 
-reactjs-store@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/reactjs-store/-/reactjs-store-0.0.2.tgz#b66d39e7b490a1ee23012129677e085ad453167c"
-  integrity sha512-jXGlsgJsbUllJiw5m2IwLHfp6D1nCuVFyWvdUHdWT2x46vOrjrykO4RTig3mrawpoJWmSCU3nx2s48/J4TIauQ==
+reactjs-store@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/reactjs-store/-/reactjs-store-0.0.4.tgz#0e977d58e7b2eba2bfff3cd66de70a76a8779c7a"
+  integrity sha512-ixA9RpAd2sXrh9u9thvcPkVA37PLnitD1oGkqH3W1FsTCHz5pLfUiMM2aM5okabZhTV+UrmTaENdQV2qSSHn0w==
 
 read-cache@^1.0.0:
   version "1.0.0"

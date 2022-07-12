@@ -5,6 +5,6 @@
  */
 import {State} from 'reactjs-store';
 
-export default class NotfoundState implements State {
+export default class NotfoundState extends State {
   
 }
