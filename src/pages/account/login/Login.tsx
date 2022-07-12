@@ -4,13 +4,13 @@
  * Desc:
  */
 import React from "react";
-import { StateComponent } from "reactjs-store";
-import LoginState from "./LoginState";
+import { StoreComponent } from "reactjs-store";
+import LoginStore from "./LoginStore";
 
-let _state: LoginState;
+let _store: LoginStore;
 const Login = () => {
-  _state = new LoginState();
-  return <StateComponent children={render} state={_state} />;
+  _store = new LoginStore();
+  return <StoreComponent children={render} store={_store} />;
 };
 
 function render() {

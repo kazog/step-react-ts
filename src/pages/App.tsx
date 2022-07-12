@@ -5,26 +5,26 @@
  */
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import { StateComponent, StatefulWidget, Store } from "reactjs-store";
+import { StoreComponent, StoreWidget, State } from "reactjs-store";
 
 import "./App.css";
-import AppState from "./AppState";
+import AppStore from "./AppStore";
 import Router from "./router";
 
-let _state: AppState; // 数据
+let _store: AppStore; // 数据
 
 // App入口
 // function App() {
 //   console.log('==============> App');
-//   _state = new AppState();
-//   return <StateComponent children={render} state={_state} />;
+//   _store = new AppStore();
+//   return <StoreComponent children={render} store={_store} />;
 // }
 
 // function render() {
 //   return (
 //     <div>
 //       <div>
-//         <StatefulWidget child={update} store={_state.time} />
+//         <StoreWidget child={update} store={_store.time} />
 //       </div>
 //       <BrowserRouter>
 //         <Router />
@@ -35,17 +35,17 @@ let _state: AppState; // 数据
 
 // ---------------  上面为函数式编程代码，下面是类编程式代码 -------------------
 
-class App extends StateComponent {
+class App extends StoreComponent {
   constructor(props: any) {
     super(props);
-    _state = new AppState();
-    this.setPageState(_state);
+    _store = new AppStore();
+    this.setStore(_store);
   }
   render() {
     return (
       <div>
         <div>
-          <StatefulWidget child={update} store={_state.time} />
+          <StoreWidget child={update} state={_store.time} />
         </div>
         <BrowserRouter>
           <Router />
@@ -55,7 +55,7 @@ class App extends StateComponent {
   }
 }
 
-function update(data: Store<number>) {
+function update(data: State<number>) {
   return <div>时间：{data.data}</div>;
 }
 

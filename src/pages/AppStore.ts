@@ -3,17 +3,17 @@
  * Create Date: 2022-07-10
  * Desc: App页面数据
  */
-import { State, StateStore } from "reactjs-store";
+import { Store, StoreState } from "reactjs-store";
 
-export default class AppState extends State {
-  public time: StateStore<number> = new StateStore(0);
+export default class AppStore extends Store {
+  public time: StoreState<number> = new StoreState(0);
 
   onCreate() {
-    console.log("AppState ==========> onCreate");
+    console.log("AppStore ==========> onCreate");
   }
 
   onShow() {
-    console.log("AppState ==========> onShow");
+    console.log("AppStore ==========> onShow");
     this.updateTime();
   }
 

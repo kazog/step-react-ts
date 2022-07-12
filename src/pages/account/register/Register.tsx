@@ -4,13 +4,13 @@
  * Desc:
  */
 import React from "react";
-import { StateComponent } from "reactjs-store";
-import RegisterState from "./RegisterState";
+import { StoreComponent } from "reactjs-store";
+import RegisterStore from "./RegisterStore";
 
-let _state: RegisterState;
+let _store: RegisterStore;
 const Register = () => {
-  _state = new RegisterState();
-  return <StateComponent children={render} state={_state} />;
+  _store = new RegisterStore();
+  return <StoreComponent children={render} state={_store} />;
 };
 
 function render() {

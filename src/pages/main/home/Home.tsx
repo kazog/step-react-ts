@@ -4,13 +4,13 @@
  * Desc:
  */
 import React from "react";
-import { StateComponent } from "reactjs-store";
-import HomeState from "./HomeState";
+import { StoreComponent } from "reactjs-store";
+import HomeStore from "./HomeStore";
 
-let _state: HomeState;
+let _store: HomeStore;
 const Home = () => {
-  _state = new HomeState();
-  return <StateComponent children={render} state={_state} />;
+  _store = new HomeStore();
+  return <StoreComponent children={render} store={_store} />;
 };
 
 function render() {

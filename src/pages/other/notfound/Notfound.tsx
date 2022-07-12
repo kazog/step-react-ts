@@ -4,13 +4,13 @@
  * Desc:
  */
 import React from "react";
-import { StateComponent } from "reactjs-store";
-import NotfoundState from "./NotfoundState";
+import { StoreComponent } from "reactjs-store";
+import NotfoundStore from "./NotfoundStore";
 
-let _state: NotfoundState;
+let _store: NotfoundStore;
 const Notfound = () => {
-  _state = new NotfoundState();
-  return <StateComponent children={render} state={_state} />;
+  _store = new NotfoundStore();
+  return <StoreComponent children={render} store={_store} />;
 };
 
 function render() {

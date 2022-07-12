@@ -4,13 +4,13 @@
  * Desc:
  */
 import React from "react";
-import { StateComponent } from "reactjs-store";
-import ForgetState from "./ForgetState";
+import { StoreComponent } from "reactjs-store";
+import ForgetStore from "./ForgetStore";
 
-let _state: ForgetState;
+let _store: ForgetStore;
 const Forget = () => {
-  _state = new ForgetState();
-  return <StateComponent children={render} state={_state} />;
+  _store = new ForgetStore();
+  return <StoreComponent children={render} store={_store} />;
 };
 
 function render() {
