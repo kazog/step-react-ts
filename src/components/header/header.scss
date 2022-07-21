@@ -1,0 +1,47 @@
+.v-header-height {
+  height: 53px;
+}
+
+.v-header-height .v-header {
+  width: 100%;
+  height: 52px;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  position: fixed;
+  color: white;
+  background-color: rgba(0, 0, 0, 1);
+  box-shadow: 6px 4px 6px rgba(0, 0, 0, 0.3);
+
+  .v-header-height .v-title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .v-header-height .v-tab {
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 16px;
+  }
+  .v-header-height .v-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin: 0 16px;
+    background-color: brown;
+  }
+  .v-header-height .v-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin: 0 16px;
+    background-color: peru;
+  }
+  .v-header-height .v-flex {
+    flex: 1;
+  }
+}
+.v-header-height .v-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

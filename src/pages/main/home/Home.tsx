@@ -4,8 +4,9 @@
  * Desc:
  */
 import React from "react";
-import { StoreComponent } from "reactjs-store";
+import { StoreComponent, StoreWidget, State } from "reactjs-store";
 import HomeStore from "./HomeStore";
+import "./Home.css";
 
 let _store: HomeStore;
 const Home = () => {
@@ -15,20 +16,41 @@ const Home = () => {
 
 function render() {
   return (
-    <div className="App">
-      <p>
-        Edit reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
+    <div className="page home">
+      <img
+        className="home-bg"
+        alt="背景"
+        src="https://cn.bing.com/th?id=OHR.BlackSun_ZH-CN0889682619_1920x1080.jpg"
+      />
+      <div className="row home-banner">
+        <div className="button home-banner-left"></div>
+        <div className="flex home-banner-item"></div>
+        <div className="button home-banner-left"></div>
+      </div>
+
+      {/* <StoreWidget state={_store.itemList} child={listView}/> */}
+
+      <div className="home-grid">
+        <div className="button home-grid-item"></div>
+        <div className="button home-grid-item"></div>
+        <div className="button home-grid-item"></div>
+        <div className="button home-grid-item"></div>
+        <div className="button home-grid-item"></div>
+        <div className="button home-grid-item"></div>
+        <div className="button home-grid-item"></div>
+        <div className="button home-grid-item"></div>
+        <div className="button home-grid-item"></div>
+        <div className="button home-grid-item"></div>
+        <div className="button home-grid-item"></div>
+        <div className="button home-grid-item"></div>
+      </div>
     </div>
   );
+}
+
+function listView(data: State<any>) {
+  const list = data.data;
+  return <div className="test-box">{list.length}</div>
 }
 
 export default Home;

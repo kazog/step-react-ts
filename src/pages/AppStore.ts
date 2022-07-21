@@ -14,7 +14,6 @@ export default class AppStore extends Store {
 
   onShow() {
     console.log("AppStore ==========> onShow");
-    this.updateTime();
   }
 
   private updateTime = () => {

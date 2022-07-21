@@ -45,7 +45,6 @@ class App extends StoreComponent {
     return (
       <div>
         <div>
-          <StoreWidget child={update} state={_store.time} />
         </div>
         <BrowserRouter>
           <Router />
@@ -53,10 +52,6 @@ class App extends StoreComponent {
       </div>
     );
   }
-}
-
-function update(data: State<number>) {
-  return <div>时间：{data.data}</div>;
 }
 
 export default App;

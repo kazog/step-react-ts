@@ -1,13 +1,121 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+input {
+  background: transparent;
+  /* outline: none; */
+  border: none;
+}
+input:focus {
+  border: none;
+  border-radius: 6px;
+  padding: 0 8px;
+  outline: solid 1px rgba(0, 0, 0, 0.3);
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* overflow: scroll; */
+  background-color: #f6f6f6;
+  font-size: 14px;
+  font-weight: 400;
+  /* font-family: PingFangSC-Medium; */
+  font-family: PingFangSC-Regular;
+}
+.button {
+  /*  border: none;
+   outline: none;
+   background-color: transparent; */
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.button:active {
+  opacity: 0.9;
+  transform: scale(0.99, 0.99);
+}
+.button::after {
+  border: 0;
+} 
+
+.grid {
+  display: grid;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.ai-center {
+  align-items: center;
+}
+.jc-center {
+  justify-content: center;
+}
+.center {
+  align-items: center;
+  justify-content: center;
+}
+.flex {
+  flex: 1;
+}
+
+.baseline {
+  align-items: baseline;
+}
+.opacity {
+  opacity: 0.6;
+}
+
+/* .btn-hover {
+  top: 2rpx;
+  opacity: 0.96;
+  position: relative;
+  background-color: #f8f8f8;
+}
+.hover {
+  opacity: 0.94;
+  transform: scale(0.96, 0.96);
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 16rpx #CCC inset;
+}
+.hover {
+  position: relative;
+  top: 2rpx;
+  box-shadow: 0px 0px 16rpx #ccc inset;
+}
+*/
+
