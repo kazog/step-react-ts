@@ -12,13 +12,13 @@
   z-index: 3;
 }
 .home .home-banner-item {
-  height: 670px;
-  background-color: rgba(255, 99, 71, 0.8);
+  height: 620px;
+  background-color: rgba(13, 13, 13, 0.242);
 }
 .home .home-banner-left {
-  width: 96px; 
+  width: 200px; 
   height: 100%;
-  background-color: rgba(71, 172, 255, 0.8);
+  background-color: rgba(132, 71, 255, 0.8);
 }
 
 .home .home-grid {

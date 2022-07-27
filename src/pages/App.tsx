@@ -43,8 +43,9 @@ class App extends StoreComponent {
   }
   render() {
     return (
-      <div>
-        <div>
+      <div className="App">
+        <div className="app-header">
+          
         </div>
         <BrowserRouter>
           <Router />
