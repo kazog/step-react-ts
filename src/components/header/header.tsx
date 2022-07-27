@@ -1,6 +1,6 @@
 /**
- * Create By: Meng
- * Create Date: 2022-03-27
+ * Author: Meng
+ * Date: 2022-03-27
  * Desc:
  */
 import "./header.scss";

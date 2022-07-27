@@ -1,6 +1,6 @@
 /**
- * Create By: Meng
- * Create Date: 2022-07-10
+ * Author: Meng
+ * Date: 2022-07-10
  * Desc: App页面数据
  */
 import { Store, StoreState } from "reactjs-store";
