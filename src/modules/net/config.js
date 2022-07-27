@@ -12,7 +12,7 @@ const ENV_NAME = {
 }
 
 export const ENV_CONST = {
-  PKEY: '563492ad6f91700001000001c79e2acd5ad3461baf2cb018a7d70f48',
+  PKEY: '563492ad6f91700001000001c79e2acd5ad3461baf2cb018a7d70f48', // pexels key
   AMAP: "4e013fcd32723446a88ce0880c425a88", // 高德地图key
   env: ENV_NAME.PROD,
   // env: ENV_NAME.TEST,
@@ -41,14 +41,18 @@ export function requestParams(params = {}) {
 const _ENV_HOST = {
   prod: {
     base: 'https://prodbase123.com',
-    auth: 'https://prodauth123.com'
+    auth: 'https://prodauth123.com',
+    pexels: 'https://api.pexels.com/v1',
+
   },
   test: {
     base: 'https://testase123.com',
-    auth: 'https://testauth123.com'
+    auth: 'https://testauth123.com',
+    pexels: 'https://api.pexels.com/v1',
   },
   dev: {
     base: '/axio',
-    auth: '/apis'
+    auth: '/apis',
+    pexels: '/pexels',
   },
 }
