@@ -6,22 +6,22 @@
 
 export function request2({ host = 'base', url = '' } = {}) {
   return new Promise((resolve) => {
-    const res = getMockData(host, url);
+    const res = getMockData(url);
     resolve(res);
   });
 }
 
 // 获取数据
-function getMockData(url) {
+function getMockData(url: string): any {
   switch (url) {
     case '/list':
-      return home_list;
+      return {};
     case '/detail':
-      return task_detail;
+      return {};
     case '/plan':
-      return plan_list;
+      return {};
     case '/log':
-      return stage_log;
+      return {};
     default:
       return {};
   }

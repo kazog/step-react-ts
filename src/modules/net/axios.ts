@@ -13,18 +13,18 @@
 //  });
  
 //  // 请求实体
-//  export function network(options) {
+ export function network(options: {}) {
  
-//    instance.defaults.headers = options.headers;
+  //  instance.defaults.headers = options.headers;
  
-//    return new Promise((resolve, reject) => {
-//      instance.request(options).then((response) => {
-//        resolve(response);
-//      }).catch((err) => {
-//        reject(err);
-//      })
-//    });
-//  }
+  //  return new Promise((resolve, reject) => {
+  //    instance.request(options).then((response) => {
+  //      resolve(response);
+  //    }).catch((err) => {
+  //      reject(err);
+  //    })
+  //  });
+ }
  
 //  // 请求实体
 //  export function download(options) {

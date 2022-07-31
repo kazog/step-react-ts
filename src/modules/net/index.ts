@@ -7,19 +7,26 @@ import { requestHeader, requestParams, requestHost, ENV_CONST } from './config';
 import { network, download } from './fetch';
 //  import { network, download } from './axios'
 
+export interface Result {
+  message: string;
+  code: number;
+  data: any;
+  header?: any;
+}
+
 // 网络请求
-export function request({ env = ENV_CONST.env, host = 'base', path = '', method = 'GET', data = {}, headers = {}, toast = true, loading = true, loadStr = '加载中...' } = {}) {
+export function request({ env = ENV_CONST.env, host = 'base', path = '', method = 'GET', data = {}, headers = {}, toast = true, loading = true, loadStr = '加载中...' } = {}): Promise<Result> {
 
   loading && _showLoading(loading, loadStr); // 加载框
   const url = requestHost(env, host) + path; // 地址拼接
   headers = requestHeader(headers); // 请求头处理
   data = requestParams(data); // 参数处理
 
-  const options = { url, method, headers, path, body: data }; // 参数重组
+  const options: any = { url, method, headers, path, body: data }; // 参数重组
 
   _pointLog('=========> Request <==========', options);
   return new Promise((resolve) => {
-    let result = { message: '', code: -1, data: null, header: {} };
+    let result: Result = { message: '', code: -1, data: null, header: {} };
     network(options).then((res) => {
       _pointLog('=========> Response <==========', res.data);
       if (res.statusCode == 200) {
@@ -43,30 +50,30 @@ export function request({ env = ENV_CONST.env, host = 'base', path = '', method 
 }
 
 // 下载文件
-export function downloadFile({ url, method = "GET", responseType = "blob", data = {}, loading = true } = {}) {
+export function downloadFile({ url = '', method = "GET", responseType = "blob", data = {}, loading = true } = {}): Promise<Result> {
   _showLoading(true, '下载中...');
   const isPost = method != 'GET'
-  const options = {
+  const options: any = {
     url,
     method,
     responseType,
     headers: requestHeader()
   }
-  if (isPost) {
-    const body = new FormData()
-    for (const key in data) {
-      const element = data[key];
-      body.append(key, element)
-    }
-    options.body = body;
-  }
+  // if (isPost) {
+  //   const body = new FormData()
+  //   for (const key in data) {
+  //     const element = data[key];
+  //     body.append(key, element)
+  //   }
+  //   options.body = body;
+  // }
   _pointLog('=========> Download Params <==========', options);
 
-  let result = { message: '', code: -1, data: null };
+  let result: Result = { message: '', code: -1, data: null };
 
   return new Promise((resolve) => {
     download(options).then((res) => {
-      _pointLog('=========> Download <==========', res);
+      _pointLog('=========> Download <==========', url);
       let fileName = window.URL.createObjectURL(res);
       result.code = 0;
       result.data = fileName;
@@ -82,13 +89,13 @@ export function downloadFile({ url, method = "GET", responseType = "blob", data 
 }
 
 // 上传多文件
-export function uploadFiles({ env = ENV_CONST.env, host = 'base', url, files, type = "image", loading = true } = {}) {
+export function uploadFiles({ env = ENV_CONST.env, host = 'base', url='', files=[], type = "image", loading = true } = {}): Promise<any>[] {
   loading && _showLoading(loading, '上传中...');
   return files.map(file => uploadFile({ env, host, url, file, type }));
 }
 
 // 上传文件
-export function uploadFile({ env = ENV_CONST.env, host = 'base', url, file, type = "image", loading = false } = {}) {
+export function uploadFile({ env = ENV_CONST.env, host = 'base', url='', file='', type = "image", loading = false } = {}) {
   loading && _showLoading(loading, '上传中...');
   return new Promise((resolve) => {
 
@@ -103,13 +110,13 @@ export function uploadFile({ env = ENV_CONST.env, host = 'base', url, file, type
     body.append('photo', file);
     body.append('type', type);
 
-    const options = { url, headers, body, method: 'POST' };
+    const options: any = { url, headers, body, method: 'POST' };
 
-    let result = { message: '', code: -1, data: null };
+    let result: Result = { message: '', code: -1, data: null };
     network(options).then((res) => {
       _pointLog('=========> Upload <==========', res);
       let data = JSON.parse(res.data);
-      result = _parseData(data);
+      result = _parseData(data, result);
       resolve(result);
     }).catch((err) => {
       _pointLog('=========> Upload Error <==========', err);
@@ -122,7 +129,7 @@ export function uploadFile({ env = ENV_CONST.env, host = 'base', url, file, type
 }
 
 // 解析response
-function _parseData(res, result) {
+function _parseData(res: any, result: Result): Result {
   result.data = res.data;
   result.header = res.header;
   result.code = 0;
@@ -130,7 +137,7 @@ function _parseData(res, result) {
 }
 
 // 解析错误
-function _parseError(data, result) {
+function _parseError(data: any, result: Result): Result {
   if (data.statusCode) {
     result.code = data.statusCode;
     result.message = data.errMsg;
@@ -146,7 +153,7 @@ function _showToast(title = '', icon = 'none') {
   console.log(title, icon);
 }
 // 加载框
-function _showLoading(loading, title = '加载中...') {
+function _showLoading(loading: boolean, title = '加载中...') {
 
   if (loading) {
     // 显示
@@ -157,8 +164,8 @@ function _showLoading(loading, title = '加载中...') {
 }
 
 // 日志
-function _pointLog(tag, msg) {
-  if (ENV_CONST.env != '1prod') {
+function _pointLog(tag: string, msg: string) {
+  if (ENV_CONST.env != 'prod') {
     console.log(tag);
     console.log(msg);
   }

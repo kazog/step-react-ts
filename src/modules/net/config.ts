@@ -5,18 +5,18 @@
  */
 // import { getTokenStr } from "../store/index";
 
-const ENV_NAME = {
-  PROD: 'prod',
-  TEST: 'test',
-  DEV: 'dev'
+enum ENV_NAME {
+  PROD = 'prod',
+  TEST = 'test',
+  DEV = 'dev'
 }
 
 export const ENV_CONST = {
   PKEY: '563492ad6f91700001000001c79e2acd5ad3461baf2cb018a7d70f48', // pexels key
   AMAP: "4e013fcd32723446a88ce0880c425a88", // 高德地图key
-  env: ENV_NAME.PROD,
+  // env: ENV_NAME.PROD,
   // env: ENV_NAME.TEST,
-  // env: ENV_NAME.DEV,
+  env: ENV_NAME.DEV,
 }
 
 export function requestHost(env = ENV_NAME.PROD, host = 'base') {
@@ -27,18 +27,18 @@ export function requestHost(env = ENV_NAME.PROD, host = 'base') {
 export function requestHeader(header = {}) {
   return {
     ...header,
-    toekn: 'asdaksdhakjsdhkaj'
+    Authorization: ENV_CONST.PKEY,
+    token: ''
   };
 }
 
 export function requestParams(params = {}) {
   return {
     ...params,
-    sign: 'alskdmalksda',
   };
 }
 
-const _ENV_HOST = {
+const _ENV_HOST: any = {
   prod: {
     base: 'https://prodbase123.com',
     auth: 'https://prodauth123.com',

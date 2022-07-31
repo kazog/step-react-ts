@@ -14,7 +14,7 @@ const routes = () => {
   return (
     <Routes>
       <Route path="/" element={<MainPages.Home />} />
-      {/* <Route index element={<Home />} /> */}
+      {/* <Route index element={<MainPages.Home />} /> */}
       <Route path="account">
         <Route path="login" element={<AccountPages.Login />} />
         <Route path="forget" element={<AccountPages.Forget />} />
