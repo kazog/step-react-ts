@@ -4,8 +4,8 @@
  * 网络请求封装
  */
 import { requestHeader, requestParams, requestHost, ENV_CONST } from './config';
-import { network, download } from './fetch';
-//  import { network, download } from './axios'
+// import { network, download } from './fetch';
+ import { network, download } from './axios'
 
 export interface Result {
   message: string;
@@ -15,14 +15,14 @@ export interface Result {
 }
 
 // 网络请求
-export function request({ env = ENV_CONST.env, host = 'base', path = '', method = 'GET', data = {}, headers = {}, toast = true, loading = true, loadStr = '加载中...' } = {}): Promise<Result> {
+export function request({ env = ENV_CONST.env, host = 'base', url = '', method = 'GET', data = {}, headers = {}, toast = true, loading = true, loadStr = '加载中...' } = {}): Promise<Result> {
 
   loading && _showLoading(loading, loadStr); // 加载框
-  const url = requestHost(env, host) + path; // 地址拼接
+  const baseURL = requestHost(env, host); // 地址拼接
   headers = requestHeader(headers); // 请求头处理
   data = requestParams(data); // 参数处理
 
-  const options: any = { url, method, headers, path, body: data }; // 参数重组
+  const options: any = { baseURL, method, headers, url, body: data }; // 参数重组
 
   _pointLog('=========> Request <==========', options);
   return new Promise((resolve) => {
@@ -30,15 +30,15 @@ export function request({ env = ENV_CONST.env, host = 'base', path = '', method 
     network(options).then((res) => {
       _pointLog('=========> Response <==========', res.data);
       if (res.statusCode == 200) {
-        result = _parseData(res, result)
+        _parseData(res, result)
         resolve(result);
       } else {
-        result = _parseError(res, result)
+        _parseError(res, result)
         resolve(result);
       }
     }).catch((err) => {
       _pointLog('=========> Error <==========', err);
-      result = _parseError(err, result)
+      _parseError(err, result)
       resolve(result);
     }).finally(() => {
       loading && _showLoading(false);
@@ -80,7 +80,7 @@ export function downloadFile({ url = '', method = "GET", responseType = "blob", 
       resolve(result);
     }).catch((err) => {
       _pointLog('=========> Download Error <==========', err);
-      result = _parseError(err, result)
+      _parseError(err, result)
       resolve(result);
     }).finally(() => {
       loading && _showLoading(false);
@@ -116,11 +116,11 @@ export function uploadFile({ env = ENV_CONST.env, host = 'base', url='', file=''
     network(options).then((res) => {
       _pointLog('=========> Upload <==========', res);
       let data = JSON.parse(res.data);
-      result = _parseData(data, result);
+      _parseData(data, result);
       resolve(result);
     }).catch((err) => {
       _pointLog('=========> Upload Error <==========', err);
-      result = _parseError(err, result)
+      _parseError(err, result)
       resolve(result);
     }).finally(() => {
       loading && _showLoading(false);
@@ -129,15 +129,15 @@ export function uploadFile({ env = ENV_CONST.env, host = 'base', url='', file=''
 }
 
 // 解析response
-function _parseData(res: any, result: Result): Result {
+function _parseData(res: any, result: Result) {
   result.data = res.data;
   result.header = res.header;
   result.code = 0;
-  return result;
+  // return result;
 }
 
 // 解析错误
-function _parseError(data: any, result: Result): Result {
+function _parseError(data: any, result: Result) {
   if (data.statusCode) {
     result.code = data.statusCode;
     result.message = data.errMsg;
@@ -145,7 +145,7 @@ function _parseError(data: any, result: Result): Result {
     result.code = -10101;
     result.message = data.errMsg;
   }
-  return result;
+  // return result;
 }
 
 // toast

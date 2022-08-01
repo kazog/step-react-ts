@@ -9,7 +9,7 @@ import { request } from "../net/index";
 // 登录 {"account":"","password":"","rsa":""}
 export function accountLogin(data = {account:'',password:'',rsa:'1234'}) {
   return request({
-    path: "/api/xj/login",
+    url: "/api/xj/login",
     method: "POST",
     host: 'sp',
     data,
@@ -19,7 +19,7 @@ export function accountLogin(data = {account:'',password:'',rsa:'1234'}) {
 // 获取首页数据
 export function queryUserinfo(data = {}) {
   return request({
-    path: "/account/info",
+    url: "/account/info",
     method: "GET",
     data,
   });
@@ -28,7 +28,7 @@ export function queryUserinfo(data = {}) {
 // 获取首页数据
 export function onLogout(data = {}) {
   return request({
-    path: "/account/login",
+    url: "/account/login",
     method: "GET",
     data,
   });

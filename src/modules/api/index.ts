@@ -9,7 +9,7 @@ import { request, uploadFiles } from "../net/index";
 // 例子
 export function example(data = {}) {
   return request({
-    path: "",
+    url: "",
     method: "POST",
     host: "sp",
     data,
@@ -24,7 +24,7 @@ export function uploadImg(imgs = {}) {
 // 添加跟进记录(跟进备注)
 export function addStageMemo(brandName='') {
   return request({
-    path: "/orderAdmin/customOrder/followUpRemark",
+    url: "/orderAdmin/customOrder/followUpRemark",
     method: "POST",
     data: {
       brandName

@@ -15,8 +15,8 @@ export const ENV_CONST = {
   PKEY: '563492ad6f91700001000001c79e2acd5ad3461baf2cb018a7d70f48', // pexels key
   AMAP: "4e013fcd32723446a88ce0880c425a88", // 高德地图key
   // env: ENV_NAME.PROD,
-  // env: ENV_NAME.TEST,
-  env: ENV_NAME.DEV,
+  env: ENV_NAME.TEST,
+  // env: ENV_NAME.DEV,
 }
 
 export function requestHost(env = ENV_NAME.PROD, host = 'base') {
